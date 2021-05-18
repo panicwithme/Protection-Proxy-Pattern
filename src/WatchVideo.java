@@ -10,12 +10,12 @@ public class WatchVideo {
 
     public void run() {
         
-        User user = new User("Cigdem", "Basic", buildVideoList());
+        User user = new User("Cigdem", "Sports", buildVideoList());
 
         try {
             user.watchVideo("Football Game");
         } catch (Exception e) {
-            System.out.println("Access denied. You must upgrade.");
+            System.out.println("Access denied for "+user.name+". Your membership is "+user.membership+". You must upgrade or change your membership.");
         }
     }
 
