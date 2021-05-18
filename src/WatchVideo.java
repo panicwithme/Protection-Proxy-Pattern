@@ -5,17 +5,17 @@ import java.util.List;
 
 public class WatchVideo {
     public static void main(String[] args) {
-        new WatchVideo().run();
+        new WatchVideo().run(args[0], args[1]);
     }
 
-    public void run() {
+    public void run(String username, String membership) {
         
-        User user = new User("Cigdem", "Sports", buildVideoList());
+        User user = new User(username, membership, buildVideoList());
 
         try {
             user.watchVideo("Football Game");
         } catch (Exception e) {
-            System.out.println("Access denied for "+user.name+". Your membership is "+user.membership+". You must upgrade or change your membership.");
+            System.out.println("Access denied for "+user.name+". \n(Your membership is "+user.membership+". You must upgrade or change your membership.)");
         }
     }
 
