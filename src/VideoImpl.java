@@ -9,15 +9,15 @@ public class VideoImpl implements Video {
     }
 
     public void watchSeries(String membership) {
-        System.out.println(this.title+" is loading...");
+        System.out.println("\n ------->" + this.title+" is loading...");
     }
 
     public void watchMovie(String membership) {
-        System.out.println(this.title+" is loading...");
+        System.out.println("\n ------->" + this.title+" is loading...");
     }
 
     public void watchSports(String membership) {
-        System.out.println(this.title+" is loading...");
+        System.out.println("\n ------->" + this.title+" is loading...");
     }
 
     public String getTitle() {

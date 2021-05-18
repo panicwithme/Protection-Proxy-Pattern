@@ -30,7 +30,7 @@ public class WatchVideo {
             try {
                 user.watchVideo(selected);
             } catch (Exception e) {
-                System.out.println("Access denied for "+user.name+". \n(Your membership is "+user.membership+". You must upgrade or change your membership.)");
+                System.out.println("\n------->Access denied for "+user.name+". \n------->(Your membership is "+user.membership+". You must upgrade or change your membership.)");
             }
             System.out.print(prompt);
         }
