@@ -1,6 +1,7 @@
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.List;
 
 public class WatchVideo {
@@ -9,14 +10,32 @@ public class WatchVideo {
     }
 
     public void run(String username, String membership) {
-        
-        User user = new User(username, membership, buildVideoList());
+        String selected;
+        String prompt = "";
+        List<Video> videoList = buildVideoList();
 
-        try {
-            user.watchVideo("Football Game");
-        } catch (Exception e) {
-            System.out.println("Access denied for "+user.name+". \n(Your membership is "+user.membership+". You must upgrade or change your membership.)");
+        User user = new User(username, membership, videoList);
+
+        prompt = prompt.concat("\nHi "+ user.name +". Here is our video library:\n");
+        for (Video video : videoList) {
+            prompt = prompt.concat("- " + video.getTitle() + " : " + video.getType()+"\n");
         }
+        prompt = prompt.concat("Write <<Log out>> to log out.\n");
+        prompt = prompt.concat("Write the title: ");
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print(prompt);
+        while (!((selected = scanner.nextLine()).equals("Log out"))) {
+            try {
+                user.watchVideo(selected);
+            } catch (Exception e) {
+                System.out.println("Access denied for "+user.name+". \n(Your membership is "+user.membership+". You must upgrade or change your membership.)");
+            }
+            System.out.print(prompt);
+        }
+
+        scanner.close();
     }
 
     public List<Video> buildVideoList() {
