@@ -10,5 +10,7 @@ The content user can view is limited according to the user's membership type. Th
 
 In order to limit access, this project implements **Protection Proxy Pattern**. 
 
+The [presentation pdf](img/Presentation.pdf) contains information about Proxy Pattern and the project.
+
 ## UML Diagram
 ![UML Diagram](img/Netfliks\(1\).png "UML Diagram")
